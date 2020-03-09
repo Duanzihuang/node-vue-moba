@@ -4,6 +4,9 @@ import Main from '../views/Main.vue'
 import CategoriesEdit from '../views/categories/Edit.vue'
 import CategoriesList from '../views/categories/List.vue'
 
+import ItemsEdit from '../views/items/Edit.vue'
+import ItemsList from '../views/items/List.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,7 +17,10 @@ const routes = [
     children: [
       { path: '/categories/create', component: CategoriesEdit },
       { path: '/categories/edit/:id', component: CategoriesEdit, props: true },
-      { path: '/categories/list', component: CategoriesList }
+      { path: '/categories/list', component: CategoriesList },
+      { path: '/items/create', component: ItemsEdit },
+      { path: '/items/edit/:id', component: ItemsEdit, props: true },
+      { path: '/items/list', component: ItemsList }
     ]
   }
 ]
