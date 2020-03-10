@@ -9,6 +9,7 @@ Express+Vue+TypeScript+ElementUI搭建的英雄联盟项目
 2. mongoose
 3. inflection
 4. cors
+5. multer
 
 > 管理前端
 

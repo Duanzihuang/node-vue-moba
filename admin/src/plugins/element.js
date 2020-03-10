@@ -20,7 +20,13 @@ import {
   Message,
   MessageBox,
   Select,
-  Option
+  Option,
+  Upload,
+  Tabs,
+  TabPane,
+  Rate,
+  Row,
+  Col
 } from 'element-ui'
 
 Vue.use(Main)
@@ -42,6 +48,12 @@ Vue.use(FormItem)
 Vue.use(Input)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Upload)
+Vue.use(Tabs)
+Vue.use(TabPane)
+Vue.use(Rate)
+Vue.use(Row)
+Vue.use(Col)
 
 Vue.prototype.$msgbox = MessageBox
 Vue.prototype.$message = Message

@@ -60,4 +60,15 @@ module.exports = app => {
     },
     router
   )
+
+  // 文件上传
+  const multer = require('multer')
+  const path = require('path')
+  const upload = multer({ dest: path.join(__dirname, '../../uploads') })
+  const config = require(path.join(__dirname, '../../config'))
+  app.use('/api/admin/upload', upload.single('file'), (req, res) => {
+    const file = req.file
+    file.url = `${config.BASEURL}uploads/${file.filename}`
+    res.send(file)
+  })
 }
