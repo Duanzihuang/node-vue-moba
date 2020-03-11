@@ -6,6 +6,9 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// 设置app全局值
+app.set('secret','lsdfasfa1212;as1')
+
 // 处理路由中间件
 app.use('/uploads',express.static(path.join(__dirname,"uploads")))
 

@@ -27,7 +27,8 @@ import {
   Rate,
   Row,
   Col,
-  Icon
+  Icon,
+  Card
 } from 'element-ui'
 
 Vue.use(Main)
@@ -56,6 +57,7 @@ Vue.use(Rate)
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(Icon)
+Vue.use(Card)
 
 Vue.prototype.$msgbox = MessageBox
 Vue.prototype.$message = Message

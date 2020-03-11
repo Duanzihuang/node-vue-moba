@@ -10,6 +10,8 @@ Express+Vue+TypeScript+ElementUI搭建的英雄联盟项目
 3. inflection
 4. cors
 5. multer
+6. bcrypt
+7. jsonwebtoken
 
 > 管理前端
 
