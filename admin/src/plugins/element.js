@@ -26,7 +26,8 @@ import {
   TabPane,
   Rate,
   Row,
-  Col
+  Col,
+  Icon
 } from 'element-ui'
 
 Vue.use(Main)
@@ -54,6 +55,7 @@ Vue.use(TabPane)
 Vue.use(Rate)
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(Icon)
 
 Vue.prototype.$msgbox = MessageBox
 Vue.prototype.$message = Message

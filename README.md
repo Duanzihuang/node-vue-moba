@@ -17,4 +17,5 @@ Express+Vue+TypeScript+ElementUI搭建的英雄联盟项目
 2. vue-router
 3. element-ui
 4. axios
+5. vue2-editor
 

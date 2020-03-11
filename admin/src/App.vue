@@ -5,6 +5,7 @@
 </template>
 
 <style>
+@import "./App.css";
 html,
 body {
   margin: 0;
