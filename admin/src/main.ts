@@ -13,6 +13,22 @@ Vue.prototype.$http = http
 
 Vue.config.productionTip = false
 
+// 配置全局mixin
+Vue.mixin({
+  computed: {
+    uploadUrl () {
+      return http.defaults.baseURL + 'upload'
+    }
+  },
+  methods: {
+    getAuthHeader () {
+      return {
+        Authorization: localStorage.token
+      }
+    }
+  }
+})
+
 new Vue({
   router,
   store,

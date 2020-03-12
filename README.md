@@ -12,6 +12,7 @@ Express+Vue+TypeScript+ElementUI搭建的英雄联盟项目
 5. multer
 6. bcrypt
 7. jsonwebtoken
+8. http-assert
 
 > 管理前端
 

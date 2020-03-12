@@ -51,13 +51,14 @@ module.exports = app => {
     })
   })
 
+  // 中间件
+  const authMiddleware = require('../../middleware/auth')
+  const resourceMiddleware = require('../../middleware/resource')
+
   app.use(
     '/api/admin/rest/:resource',
-    async (req, res, next) => {
-      const modelName = require('inflection').classify(req.params.resource)
-      req.Model = require(`../../models/${modelName}`)
-      next()
-    },
+    authMiddleware(),
+    resourceMiddleware(),
     router
   )
 
@@ -66,20 +67,25 @@ module.exports = app => {
   const path = require('path')
   const upload = multer({ dest: path.join(__dirname, '../../uploads') })
   const config = require(path.join(__dirname, '../../config'))
-  app.use('/api/admin/upload', upload.single('file'), (req, res) => {
-    const file = req.file
-    file.url = `${config.BASEURL}uploads/${file.filename}`
-    res.send(file)
-  })
+  app.use(
+    '/api/admin/upload',
+    authMiddleware(),
+    upload.single('file'),
+    (req, res) => {
+      const file = req.file
+      file.url = `${config.BASEURL}uploads/${file.filename}`
+      res.send(file)
+    }
+  )
 
   // 登录
-  app.use('/api/admin/login', async (req,res) => {
+  app.use('/api/admin/login', async (req, res) => {
     const { username, password } = req.body
 
     const AdminUser = require('../../models/AdminUser')
 
-    const user = await AdminUser.findOne({username}).select('+password')
-    
+    const user = await AdminUser.findOne({ username }).select('+password')
+
     if (!user) {
       return res.status(422).send({
         message: '用户名不存在'
@@ -95,7 +101,14 @@ module.exports = app => {
     }
 
     const jwt = require('jsonwebtoken')
-    const token = jwt.sign({id: user._id},app.get('secret'))
-    res.send(token)
+    const token = jwt.sign({ id: user._id }, app.get('secret'))
+    res.send('Bearer ' + token)
+  })
+
+  // 处理通用错误
+  app.use(async (err, req, res, next) => {
+    res.status(err.status).send({
+      message: err.message
+    })
   })
 }

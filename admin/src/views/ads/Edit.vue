@@ -19,7 +19,8 @@
               <el-upload
                 class="avatar-uploader"
                 list-type="picture-card"
-                :action="$http.defaults.baseURL+'upload'"
+                :action="uploadUrl"
+                :headers="getAuthHeader()"
                 :on-success="res => $set(item,'image',res.url)">
                 <img v-if="item.image" :src="item.image" class="avatar">
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
