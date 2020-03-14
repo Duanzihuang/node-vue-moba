@@ -33,10 +33,10 @@ import { VueEditor } from 'vue2-editor'
   }
 })
 export default class ArticlesEdit extends Vue {
-  @Prop({ type: String }) id: string
+  @Prop({ type: String }) id
 
-  declare model: Record<string, any>
-  declare categories
+  declare model: {}
+  declare categories: []
 
   data () {
     return {

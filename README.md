@@ -13,6 +13,7 @@ Express+Vue+TypeScript+ElementUI搭建的英雄联盟项目
 6. bcrypt
 7. jsonwebtoken
 8. http-assert
+9. connect-history-api-fallback
 
 > 管理前端
 

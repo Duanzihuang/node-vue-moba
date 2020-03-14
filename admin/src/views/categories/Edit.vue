@@ -27,10 +27,10 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({})
 export default class CategoriesEdit extends Vue {
-  @Prop({ type: String }) id: string
+  @Prop({ type: String }) id
 
-  declare model: Record<string, any>
-  declare parents
+  declare model: {}
+  declare parents: []
 
   data () {
     return {

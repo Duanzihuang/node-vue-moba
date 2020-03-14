@@ -43,9 +43,9 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({})
 export default class AdsEdit extends Vue {
-  @Prop({ type: String }) id: string
+  @Prop({ type: String }) id
 
-  declare model: Record<string, any>
+  declare model: {}
 
   data () {
     return {
